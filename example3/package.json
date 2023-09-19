@@ -1,0 +1,17 @@
+{
+  "name": "example1",
+  "version": "1.0.0",
+  "description": "Ajax pattern ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dr.Rao",
+  "license": "ISC",
+  "dependencies": {
+    "@microfrontends/serve": "^11.3.0",
+    "concurrently": "^8.2.1",
+    "opener": "^1.5.2",
+    "sleep-ms": "^2.0.1"
+  }
+}
