@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title> Scross 2023 model</title>
+        <link href="/decide/static/page.css" rel="stylesheet" />
+    </head>
+
+    <body class="layout">
+        <h1 class="header">The NEXA Super Store</h1>
+
+        <p class="decide_banner">
+            <!--# block name="near_you_fallback"-->
+            <!--# endblock-->
+
+            <!--#include virtual="/inspire/fragment/near_you/scross" stub="near_you_fallback"-->
+
+        </p>
+        <div class="product">
+            <h2> Scross 2023 </h2>
+            <image class="image" src="/images/scross-big.png"></image>
+        </div>
+
+        <aside class="recos">
+             <!--# block name="reco_fallback"-->
+             <a href="/recommendations/scross"> Show Other Cars </a>
+            <!--# endblock-->
+
+
+            <!--#include virtual="/inspire/fragment/recommendations/scross" stub="reco_fallback"-->
+          
+        </aside>
+      
+    </body>
+</html>
