@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="dom"></div>
+
+
+    <script type="text/javascript">
+
+        let el = document.querySelector(".dom");
+
+        el.attachShadow({mode : "open"});
+
+        console.log(el.shadowRoot);
+        console.log(el.shadowRoot.host);
+
+        el.shadowRoot.innerHTML = "Hi I am shadowed";
+
+        let hello = document.createElement('span');
+
+        hello.textContent = "Hi I am shadowed but wrapped in span";
+
+        el.shadowRoot.appendChild(hello);
+
+    </script>
+</body>
+</html>
