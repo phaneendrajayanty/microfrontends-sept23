@@ -1,0 +1,111 @@
+
+
+<!DOCTYPE HTML>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <style>
+            section.articleBox h1 {
+                color: black;
+            }
+        </style>
+    </head>
+    <body>
+
+        <!-- Original Document Tree (SHADOW HOST)-->
+        <section class="articleBox">
+
+            <h1 class="articleBoxTitle">Article Group</h1>
+
+            <article class="new">
+                <h1>New Article</h1>
+                <p>New!</p>
+            </article>
+            <article class="new">
+                <h1>New Article 2</h1>
+                <p>New!New!</p>
+            </article>
+            <article class="cool">
+                <h1>Cool Article</h1>
+                <p>Cool!</p>
+            </article>
+            <article>
+                <h1>Article</h1>
+                <p>hogehoge</p>
+            </article>
+            <article class="cool">
+                <h1>Cool Article 2</h1>
+                <p>Cool!Cool!</p>
+            </article>
+            <article>
+                <h1>Article 2</h1>
+                <p>fugafuga</p>
+            </article>
+        </section>
+
+        <!-- For Shadow DOM Tree -->
+        <!-- Shadow DOM Subtree -->
+        <section id="shadow-articleArea">
+            <!--  Shadow DOM  -->
+            <style scoped>
+                .shadow-newArticleBox {
+                    padding: 1px 12px;
+                    color: #fcfcfc;
+                    background: #ee9999;
+                }
+                .shadow-coolArticleBox {
+                    padding: 1px 12px;
+                    color: #fcfcfc;
+                    background: #0099cc;
+                }
+                .shadow-articleBox {
+                    padding: 1px 12px;
+                    color: #fcfcfc;
+                    background: #999;
+                }
+            </style>
+
+            <!--
+                Shadow DOM  content  Shadow Host -->
+            <content select="h1.articleBoxTitle"></content>
+
+            <section class="shadow-newArticleBox">
+                <h1>New Articles</h1>
+                <content select="article.new"></content>
+            </section>
+
+            <section class="shadow-coolArticleBox">
+                <h1>Cool Articles</h1>
+                <content select="article.cool"></content>
+            </section>
+
+            <section class="shadow-articleBox">
+                <h1>Articles</h1>
+                <content select="article"></content>
+            </section>
+        </section>
+
+
+        <script>
+            /*
+             * Get Document Tree Element
+             *
+             */
+            var documentElement = document.querySelector('section.articleBox');
+            /*
+             * Create Shadow DOM Root
+             * */
+            var shadowRoot = new WebKitShadowRoot(documentElement);
+            /*
+             * Get Document Tree for create a Shadow Subtree.
+             **/
+            var shadowSubtree = document.querySelector('#shadow-articleArea');
+            /*
+             * Create Shadow Subtree.
+             **/
+            shadowRoot.appendChild(shadowSubtree);
+        </script>
+
+    </body>
+</html>
